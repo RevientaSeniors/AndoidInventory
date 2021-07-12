@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         Log.i("info", "Botón Editar contenido presionado");
     }
     public void fiadores(View view){
+
         Log.i("info", "Botón fiadores presionado");
     }
 

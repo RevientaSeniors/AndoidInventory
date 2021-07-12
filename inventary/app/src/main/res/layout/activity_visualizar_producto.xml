@@ -7,6 +7,7 @@
     tools:context=".VisualizarProducto">
 
     <TextView
+
         android:id="@+id/textView4"
         android:layout_width="308dp"
         android:layout_height="45dp"
@@ -18,28 +19,77 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TableLayout
+    <ScrollView
         android:layout_width="416dp"
-        android:layout_height="562dp"
+        android:layout_height="554dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4">
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintVertical_bias="1.0">
 
-        <TableRow
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </TableLayout>
+                <TableLayout
+                    android:id="@+id/TableLayout1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:stretchColumns="1">
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" >
+
+                        <TextView
+                            android:id="@+id/textView5"
+                            android:layout_width="146dp"
+                            android:layout_height="wrap_content"
+                            android:text="Nombre" />
+
+                        <TextView
+                            android:id="@+id/textView8"
+                            android:layout_width="88dp"
+                            android:layout_height="wrap_content"
+                            android:text="Tipo" />
+
+                        <TextView
+                            android:id="@+id/textView9"
+                            android:layout_width="91dp"
+                            android:layout_height="wrap_content"
+                            android:text="Precio" />
+
+                        <TextView
+                            android:id="@+id/textView10"
+                            android:layout_width="86dp"
+                            android:layout_height="wrap_content"
+                            android:text="Cantidad" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </TableLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

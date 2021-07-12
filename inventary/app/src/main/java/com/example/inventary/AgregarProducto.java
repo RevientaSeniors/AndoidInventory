@@ -13,6 +13,12 @@ import android.widget.Spinner;
 public class AgregarProducto extends AppCompatActivity {
 private Spinner spinner1;
 private EditText nombreProducto, precioProducto, cantidadProducto;
+private String nombre;
+private int cantidad;
+private double precio;
+private  String seleccion;
+Producto[] productos;
+private int contadorProducto = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,14 +32,30 @@ private EditText nombreProducto, precioProducto, cantidadProducto;
         ArrayAdapter <String> arreglo1 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, opciones);
         spinner1.setAdapter(arreglo1);
     }
-/*
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        System.out.println("Presionaste el boton de volver xd");
-        return super.onKeyDown(keyCode, event);
+
+    public AgregarProducto() {
+        this.productos = new Producto[500];
     }
-    */
+
+    /*
+        @Override
+        public boolean onKeyDown(int keyCode, KeyEvent event) {
+            System.out.println("Presionaste el boton de volver xd");
+            return super.onKeyDown(keyCode, event);
+        }
+        */
     public void agregarP(View view){
-        Log.i("info","Presiono el botón Agregar ya puede agregar");
+        nombre = nombreProducto.getText().toString();
+        precio = Double.parseDouble(precioProducto.getText().toString());
+        cantidad = Integer.parseInt(cantidadProducto.getText().toString());
+        seleccion = spinner1.getSelectedItem().toString();
+        productos[contadorProducto] = new Producto(nombre, seleccion, cantidad, precio);
+        for(int i=0; i<=contadorProducto;i++) {
+            Log.i("info", "Nombre: " + productos[i].getNombre()+ " Tipo: "+productos[i].getTipo()+ " Cantidad:"+productos[i].getCantidad()+" Precio: "+productos[i].getPrecio()+ " n"+contadorProducto);
+        }
+        contadorProducto = contadorProducto+1;
+
+
+
     }
 }
