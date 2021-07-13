@@ -5,12 +5,16 @@ public class Producto {
     String tipo;
     int cantidad;
     double precio;
+    double precioCompraUnidad;
+    double precioCompraConjunto;
 
-    public Producto(String nombre, String tipo, int cantidad, double precio) {
+    public Producto(String nombre, String tipo, int cantidad, double precio, double precioCompraUnidad, double precioCompraConjunto) {
         this.nombre = nombre;
         this.tipo = tipo;
         this.cantidad = cantidad;
         this.precio = precio;
+        this.precioCompraUnidad = precioCompraUnidad;
+        this.precioCompraConjunto = precioCompraConjunto;
     }
 
     public String getNombre() {
@@ -43,5 +47,21 @@ public class Producto {
 
     public void setPrecio(double precio) {
         this.precio = precio;
+    }
+
+    public double getPrecioCompraUnidad(){
+        return precioCompraUnidad;
+    }
+
+    public void setPrecioCompraUnidad(double precioCompraUnidad){
+        this.precioCompraUnidad = precioCompraUnidad;
+    }
+
+    public double getPrecioCompraConjunto() {
+        return precioCompraConjunto;
+    }
+
+    public void setPrecioCompraConjunto(double precioCompraConjunto) {
+        this.precioCompraConjunto = precioCompraConjunto;
     }
 }

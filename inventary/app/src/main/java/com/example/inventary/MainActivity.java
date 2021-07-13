@@ -15,7 +15,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
     public void visualizar(View view){
-        Log.i("info","Botón Visualizar Contenido presionado");
+        Intent visualizarProducto = new Intent(this,VisualizarProducto.class);
+        startActivity((visualizarProducto));
+
     }
     public void agregar(View view){
         //Log.i("info","Botón Agregar contenido presionado");
