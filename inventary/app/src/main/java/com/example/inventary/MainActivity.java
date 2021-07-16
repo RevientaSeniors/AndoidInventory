@@ -25,7 +25,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(agregarProducto);
     }
     public void editar(View view){
-        Log.i("info", "Botón Editar contenido presionado");
+        Intent editarProducto = new Intent(this, EditarProducto.class);
+        startActivity(editarProducto);
     }
     public void fiadores(View view){
 

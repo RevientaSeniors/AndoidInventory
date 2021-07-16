@@ -1,6 +1,13 @@
 package com.example.inventary;
 
-public class Producto {
+import android.content.Context;
+
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+
+public class Producto implements Serializable {
     String nombre;
     String tipo;
     int cantidad;
