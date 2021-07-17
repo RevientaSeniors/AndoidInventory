@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Inventary">
-        <activity android:name=".EditarProductox2"></activity>
+        <activity android:name=".VisualizarFiador"></activity>
+        <activity android:name=".AgregarFiador" />
+        <activity android:name=".Fiadores" />
+        <activity android:name=".EditarProductox2" />
         <activity android:name=".VisualizarProducto" />
         <activity android:name=".EditarProducto" />
         <activity android:name=".AgregarProducto" />

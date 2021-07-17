@@ -94,6 +94,13 @@
                 android:onClick="botonEditar"
                 android:text="Editar" />
 
+            <Button
+                android:id="@+id/b_eliminarProducto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="eliminarProducto"
+                android:text="Eliminar" />
+
         </LinearLayout>
     </ScrollView>
 

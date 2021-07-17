@@ -29,8 +29,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(editarProducto);
     }
     public void fiadores(View view){
+        Intent fiadores = new Intent(this, Fiadores.class);
+        startActivity(fiadores);
 
-        Log.i("info", "Botón fiadores presionado");
+
     }
 
 }

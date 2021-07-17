@@ -94,8 +94,9 @@ private String[] opciones ={"","Limpieza","Farmacia","Consumo Diario","Desechabl
                 precioCompraUnidadMeter =Double.parseDouble(precioCompraUnidad.getText().toString());
                 precioCompraConjuntoMeter = Double.parseDouble(precioCompraConjunto.getText().toString());
                 productosCargar.remove(i);
-                productosCargar.add(i,new Producto(nombreMeter,tipoMeter,cantidadMeter,precioVentaMeter,precioCompraUnidadMeter,precioCompraConjuntoMeter));
+                productosCargar.add(new Producto(nombreMeter,tipoMeter,cantidadMeter,precioVentaMeter,precioCompraUnidadMeter,precioCompraConjuntoMeter));
                 guardarDatos();
+                Toast.makeText(this, "Producto Editado", Toast.LENGTH_SHORT).show();
                 startActivity(pasar);
             }
         }
@@ -115,6 +116,18 @@ private String[] opciones ={"","Limpieza","Farmacia","Consumo Diario","Desechabl
         } catch (Exception e) {
             e.printStackTrace();
         }
-        Toast.makeText(this, "Producto Editado", Toast.LENGTH_SHORT).show();
+
+    }
+
+    public void eliminarProducto(View view){
+        for(int i=0;i<=productosCargar.size()-1;i++) {
+            if (productosCargar.get(i).getNombre().equals(valor)) {
+                Intent pasar = new Intent(this,MainActivity.class);
+                productosCargar.remove(i);
+                guardarDatos();
+                Toast.makeText(this, "Producto Eliminado", Toast.LENGTH_SHORT).show();
+                startActivity(pasar);
+            }
+        }
     }
 }
