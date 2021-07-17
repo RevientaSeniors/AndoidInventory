@@ -2,6 +2,7 @@ package com.example.inventary;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -21,6 +22,7 @@ public class EditarProducto extends AppCompatActivity {
     private String[] opciones = {"","Limpieza","Farmacia","Consumo Diario", "Desechables"} ;
     private ArrayList<Producto> productosA = new ArrayList<Producto>();
     private ArrayList<String> productosFiltrados = new ArrayList<String>();
+    private int valorSpinnerPro;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +68,8 @@ public class EditarProducto extends AppCompatActivity {
         spinnerProducto.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                Log.i("Info spinner de pro", "Se está tocando: "+i);
+                Log.i("Info spinner de pro", "Se está tocando: "+spinnerProducto.getItemAtPosition(i).toString());
+                valorSpinnerPro = i;
             }
 
             @Override
@@ -121,6 +124,10 @@ public class EditarProducto extends AppCompatActivity {
         editar.setEnabled(true);
         editar.setVisibility(View.VISIBLE);
     }
-
+    public void editarP(View view){
+        Intent pasar = new Intent(this,EditarProductox2.class);
+        pasar.putExtra("productoPasar", spinnerProducto.getItemAtPosition(valorSpinnerPro).toString());
+        startActivity(pasar);
+    }
 
 }

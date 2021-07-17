@@ -3,21 +3,17 @@ package com.example.inventary;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.KeyEvent;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import java.io.FileNotFoundException;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.ObjectStreamConstants;
 import java.util.ArrayList;
 
 public class AgregarProducto extends AppCompatActivity {
@@ -27,19 +23,20 @@ public class AgregarProducto extends AppCompatActivity {
     private int cantidad;
     private double precio, precioCompraUnidad, precioCompraConjunto;
     private String seleccion;
-    private ArrayList<Producto> productosA = new ArrayList<Producto>();
+    private ArrayList<Producto> productosA = new ArrayList<Producto>(), productosCargar = new ArrayList<Producto>();
     private int contadorProducto = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agregar_producto);
+        cargarDatos();
         spinner1 = (Spinner) findViewById(R.id.spinner);
-        nombreProducto = (EditText) findViewById((R.id.editTextTextPersonName));
+        nombreProducto = (EditText) findViewById((R.id.tv_Nombre));
         precioProducto = (EditText) findViewById(R.id.editTextNumberDecimal);
         precioProductoUnidad = (EditText) findViewById(R.id.editTextNumberDecimal2);
         precioProductoConjunto = (EditText) findViewById(R.id.editTextNumberDecimal3);
-        cantidadProducto = (EditText) findViewById(R.id.editTextNumber);
+        cantidadProducto = (EditText) findViewById(R.id.tv_Cantidad);
         String[] opciones = {"Limpieza", "Farmacia", "Consumo Diario", "Desechables"};
         ArrayAdapter<String> arreglo1 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, opciones);
         spinner1.setAdapter(arreglo1);
@@ -81,6 +78,24 @@ public class AgregarProducto extends AppCompatActivity {
         }
         Toast.makeText(this, "Producto Agregado", Toast.LENGTH_SHORT).show();
 
+
+    }
+    public void cargarDatos(){
+        try {
+            FileInputStream fin = openFileInput("test.dat");
+
+            // Wrapping our stream
+            ObjectInputStream oin = new ObjectInputStream(fin);
+
+            // Reading in our object
+            productosCargar = (ArrayList<Producto>) oin.readObject();
+            // Closing our object stream which also closes the wrapped stream.
+            oin.close();
+            productosA = (ArrayList) productosCargar.clone();
+            contadorProducto = productosCargar.size()-1;
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
 
     }
 
