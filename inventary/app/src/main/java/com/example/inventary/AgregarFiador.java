@@ -33,6 +33,9 @@ private  String nombre;
 
     public void agregarFia(View view){
         nombre = nombreTv.getText().toString();
+        for(int i=0;i<=5;i++) {
+            listaProductos.add(i,new Producto("producto"+i,"Farmacia",20,22.5,23,0));
+        }
         fiadores.add(contadorFiador,new Fiador(nombre,listaProductos,0.0,0.0));
         contadorFiador = contadorFiador+1;
         guardarDatos();
